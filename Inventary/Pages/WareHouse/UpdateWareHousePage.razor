@@ -1,0 +1,13 @@
+﻿@page "/warehouse/update/{IdWarehouse}"
+
+<UpdateProductComponent IdProduct="@IdWarehouse" />
+
+@code {
+    [Parameter]
+    public string IdWarehouse { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        IdWarehouse = IdWarehouse;
+    }
+}

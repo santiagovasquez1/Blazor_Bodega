@@ -1,0 +1,31 @@
+﻿<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre de usurio</label>
+        <input type="text" class="form-control" @bind-value="@username" />
+        <label for="exampleInputEmail1">¿Tú color fovorito?</label>
+        <input type="text" class="form-control" @bind-value="@colorUser" />
+        <small id="emailHelp" class="form-text text-muted">@userMessage</small>
+    </div>
+    <input type="button" class="btn btn-dark" value="Magía" @onclick="ChangeText" />
+</form>
+
+@code{
+    string colorUser;
+    string username;
+    string userMessage;
+
+    [Parameter]
+    public string Message { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        userMessage = Message;
+    }
+
+    private void ChangeText()
+    {
+
+        userMessage = "Usuario " + username + " color favorito es " + colorUser;
+
+    }
+}
